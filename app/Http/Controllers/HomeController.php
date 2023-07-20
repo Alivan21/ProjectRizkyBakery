@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\Kategori;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,10 +28,12 @@ class HomeController extends Controller
     {
         $produks = Produk::all();
         $kategori = Kategori::get();
-        return view('index_pelanggan', compact('produks','kategori'));
+        $user = Auth::user();
+        return view('index_pelanggan', compact('produks', 'kategori', 'user'));
     }
 
-    public function ownerHome(){
+    public function ownerHome()
+    {
         return view('dashboard_owner');
     }
 
@@ -49,7 +52,8 @@ class HomeController extends Controller
     {
         $produks = Produk::all();
         $kategori = Kategori::get();
-        return view('index_pelanggan', compact('produks','kategori'));
+        $user = Auth::user();
+        return view('index_pelanggan', compact('produks', 'kategori', 'user'));
         // return view('index_pelanggan');
     }
 }

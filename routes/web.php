@@ -91,7 +91,7 @@ Route::group(['middleware' => ['auth', 'level:pelanggan']], function () {
     // Route::get('/home', function(){
     //     return view ('index_pelanggan');
     // })->name('home');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'pelangganHome'])->name('home');
+    Route::get('/home', [HomeController::class, 'pelangganHome'])->name('home');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
